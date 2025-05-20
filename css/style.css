@@ -1,114 +1,225 @@
-/* Layout geral */
-body {
-    font-family: Arial, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap');
+
+/* RESET */
+* {
     margin: 0;
     padding: 0;
-    background: #fff7f7;
-    color: #333;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Fredoka', sans-serif;
+    /* background: ('img/FundoAndy.jpg') repeat; */
+    background-size: cover;
+    color: #2C3E50;
+    line-height: 1.6;
+    padding: 20px;
     text-align: center;
 }
 
-header {
-    background: #ffe0ec;
-    padding: 30px 20px;
+/* HEADER */
+.header {
+    background-color: #E74C3C;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(44, 62, 80, 0.2);
 }
 
 .header-title {
-    font-size: 2.5rem;
-    margin: 10px 0;
+    font-size: 2rem;
+    color: #8B4513;
 }
 
 .header-subtitle {
-    font-size: 1.5rem;
-    color: #c44;
+    font-size: 1.2rem;
+    margin-top: 10px;
+    color: #2C3E50;
 }
 
-/* Modal */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.6);
-}
-
-.modal-content {
-    position: relative;
-    background: white;
-    margin: 10% auto;
-    padding: 20px;
-    border-radius: 12px;
-    width: 90%;
-    max-width: 500px;
-    text-align: center;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
-}
-
-.modal-cover {
-    width: 100%;
-    border-radius: 12px;
+.logo img {
+    max-width: 80px;
     margin-bottom: 10px;
 }
 
+/* BOTÕES */
+button {
+    background-color: #E74C3C;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    margin: 15px auto;
+    font-size: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    display: block;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background-color: #9B59B6;
+}
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0; top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(44, 62, 80, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #FFFFFF;
+    padding: 20px;
+    border-radius: 15px;
+    max-width: 90%;
+    position: relative;
+}
+
 .modal-photo-wrapper {
-    margin-top: 15px;
+    text-align: center;
 }
 
 .modal-photo {
     width: 100%;
-    border-radius: 10px;
+    max-width: 300px;
+    border-radius: 15px;
 }
 
 .close-button {
     position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 28px;
+    top: 10px; right: 15px;
+    font-size: 1.5rem;
     cursor: pointer;
+    color: #E74C3C;
 }
 
-/* Botões */
-button {
-    background-color: #ff5e9c;
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    margin: 20px 10px 10px;
-    font-size: 1rem;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #ff82b2;
-}
-
-/* Mensagem surpresa */
-.hidden-message {
-    display: none;
-    margin-top: 20px;
-    font-size: 1.2rem;
-    color: #b30059;
-    background-color: #ffe4ef;
-    border: 2px dashed #ff9ac2;
-    padding: 20px;
-    border-radius: 12px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Vídeo */
+/* MENSAGEM SURPRESA */
+.hidden-message,
 .hidden-video {
     display: none;
     margin-top: 20px;
-    max-width: 600px;
+    background: #F1C40F;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+    max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    color: #2C3E50;
+}
+
+/* GATINHAS */
+.nami-cat,
+.luna-cat {
+    width: 80px;
+    position: absolute;
+    bottom: 10px;
+    transition: transform 0.3s;
+}
+
+.nami-cat:hover,
+.luna-cat:hover {
+    transform: scale(1.2);
+}
+
+.nami-cat {
+    left: 10px;
+}
+
+.luna-cat {
+    right: 10px;
+}
+
+/* FOOTER */
+footer {
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: #2C3E50;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 600px) {
+    .header-title {
+        font-size: 1.6rem;
+    }
+
+    .header-subtitle {
+        font-size: 1rem;
+    }
+
+    button {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+
+    .modal-photo {
+        max-width: 90%;
+    }
+
+    .nami-cat,
+    .luna-cat {
+        width: 60px;
+    }
+}
+
+/* GATINHAS */
+.nami-cat,
+.luna-cat {
+    width: 80px;
+    position: absolute;
+    bottom: 10px;
+    transition: transform 0.3s;
+}
+
+.nami-cat:hover,
+.luna-cat:hover {
+    transform: scale(1.2);
+}
+
+.nami-cat {
+    left: 10px;
+}
+
+.luna-cat {
+    right: 10px;
+}
+
+/* FOOTER */
+footer {
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 600px) {
+    .header-title {
+        font-size: 1.6rem;
+    }
+
+    .header-subtitle {
+        font-size: 1rem;
+    }
+
+    button {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+
+    .modal-photo {
+        max-width: 90%;
+    }
+
+    .nami-cat,
+    .luna-cat {
+        width: 60px;
+    }
 }
 
 /* Gatinhas */
@@ -144,30 +255,20 @@ button:hover {
 
 /* Rodapé */
 footer {
-    background: #ffe0ec;
+    background: #E74C3C;
     padding: 20px;
     font-size: 0.9rem;
 }
 footer p {
     margin: 0;
 }
-/* Fundo inspirado no quarto do Andy (parede azul com nuvens)
-
+/* 
 musica de fundo - amigo estou aqui
 
 modal com capa da bota do woody e dentro dele uma foto nossa
 
-imagem da nami passando pela tela
+imagem da nami passando pela tela - Falta a Imagem
 
-iamgem da luna passando pela tela
-
-Sons animados ao clicar nos botões:
--Botão do modal com a nossa foto - "Tem uma cobra na minha bota"
--Nami de woody - "E aí, parceiro? Meu nome é Xerife Woody"
--Luna de Buzz - "Ao infinito e Além" 
-
-Botão com uma mensagem surpresa para ele
--texto
--audio
+iamgem da luna passando pela tela - Falta a Imagem
 
 vídeo fofo */
