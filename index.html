@@ -3,318 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Aniversário Amor 💖</title>
+    
     <link rel="stylesheet" href="css/style.css">
-    <title>Feliz Aniversário Amor 💖!</title>
+    <script defer src="js/script.js"></script>
 </head>
 <body>
-    <!-- Tela de Boas-vindas -->
-    <div class="welcome-screen" id="welcomeScreen">
-        <h1 class="welcome-title floating">Feliz Aniversário!</h1>
-        <h2 class="welcome-subtitle" id="boyfriendName">Ian Lucas Damásio Coelho Nascimento</h2>
-        <button class="enter-button" id="enterButton">Entrar no Mundo dos Brinquedos</button>
-    </div>
 
-    <!-- Conteúdo Principal -->
-    <div class="main-content" id="mainContent">
-        <div class="container">
-            <!-- Cabeçalho -->
-            <header class="header">
-                <div class="logo">Toy Story</div>
-                <div class="nav-buttons">
-                    <button class="nav-button" data-sound="button-sound">Galeria</button>
-                    <button class="nav-button" data-sound="button-sound">Mensagem</button>
-                    <button class="nav-button" data-sound="button-sound">Lembranças</button>
-                </div>
-            </header>
-
-            <!-- Caixa de Brinquedos -->
-            <div class="toy-box">
-                <h2>Para o melhor namorado do mundo!</h2>
-                <p>Você é o Andy da minha vida! Espero que goste dessa surpresa feita com muito carinho.</p>
-                <p>Clique nos personagens espalhados pela tela para interagir com eles!</p>
-            </div>
-
-            <!-- Galeria de Fotos -->
-            <div class="gallery">
-                <div class="gallery-item">
-                    <!-- Espaço para foto 1 -->
-                    <img src="/api/placeholder/400/320" alt="Placeholder para foto nossa">
-                </div>
-                <div class="gallery-item">
-                    <!-- Espaço para foto 2 -->
-                    <img src="/api/placeholder/400/320" alt="Placeholder para foto nossa">
-                </div>
-                <div class="gallery-item">
-                    <!-- Espaço para foto 3 -->
-                    <img src="/api/placeholder/400/320" alt="Placeholder para foto nossa">
-                </div>
-                <div class="gallery-item">
-                    <!-- Espaço para foto 4 -->
-                    <img src="/api/placeholder/400/320" alt="Placeholder para foto nossa">
-                </div>
-            </div>
-
-            <!-- Botão Surpresa -->
-            <button class="surprise-button" id="surpriseButton" data-sound="surprise-sound">Surpresa Especial!</button>
+    <header class="header">
+        <div class="logo">
+            <!-- <img src="img/sua-logo.png" alt="Logo de Amor"> -->
         </div>
+        <h1 class="header-title">Feliz Aniversário!</h1>
+        <h2 class="header-subtitle" id="boyfriendName">Ian Lucas Damásio Coelho Nascimento</h2>
+        <p>Nem adianta dizer que eu não sei seu nome inteiro, eu sei!</p>
+    </header>
 
-        <!-- Personagens Gatos Animados -->
-        <div class="cat-character" id="namiWoody" style="top: 200px; left: 50px;">
-            <!-- Espaço para imagem da gatinha Nami vestida de Woody -->
-            <img src="/api/placeholder/400/320" alt="Nami como Woody">
-        </div>
-        
-        <div class="cat-character" id="lunaBuzz" style="top: 400px; right: 50px;">
-            <!-- Espaço para imagem da gatinha Luna vestida de Buzz -->
-            <img src="/api/placeholder/400/320" alt="Luna como Buzz">
-        </div>
+    <main>
+        <!-- Botão do modal -->
+        <button id="openModalBtn">Clique aqui, cowboy 💘</button>
 
-        <!-- Easter Egg da Bota -->
-        <div class="boot" id="bootEasterEgg">
-            <!-- Espaço para imagem da bota do Woody -->
-            <img src="/api/placeholder/400/320" alt="Bota do Woody">
-        </div>
-    </div>
+        <!-- Modal com imagem de vocês -->
+        <div id="loveModal" class="modal">
+            <div class="modal-content">
+                <img src="img/bota-woody.jpg" alt="Capa Woody" class="modal-cover">
 
-    <!-- Modal de Mensagem Especial -->
-    <div class="modal" id="messageModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button class="close-modal" id="closeMessageModal">×</button>
-                <h2 class="modal-title">Mensagem Especial</h2>
-                <!-- Imagem da personagem Jessie (namorada do Woody) -->
-                <div class="jessie-character">
-                    <img src="/api/placeholder/400/320" alt="Jessie">
+                <div class="modal-photo-wrapper">
+                    <img src="img/foto-nos.jpg" alt="Nós dois 💑" class="modal-photo">
                 </div>
-            </div>
-            <div class="modal-body">
-                <p>Aqui vai a mensagem especial que você vai escrever para seu namorado! Esse texto é apenas um exemplo para você substituir depois com suas próprias palavras cheias de carinho e amor.</p>
-                <p>Cada momento ao seu lado é uma aventura incrível, assim como as aventuras de Woody e Buzz. Você é o parceiro perfeito para todas as minhas jornadas!</p>
-                <p>Te amo infinito e além!</p>
-            </div>
-            <div class="modal-footer">
-                <button class="nav-button" id="closeModalButton" data-sound="button-sound">Fechar</button>
+
+                <span class="close-button" id="closeModalBtn">&times;</span>
             </div>
         </div>
-    </div>
 
-    <!-- Modal de Vídeo -->
-    <div class="modal" id="videoModal">
-        <div class="modal-content video-modal-content">
-            <button class="close-modal" id="closeVideoModal">×</button>
-            <video id="surpriseVideo" controls>
-                <!-- Espaço para o vídeo fofo de vocês -->
-                <source src="#" type="video/mp4">
-                Seu navegador não suporta vídeos HTML5.
+        <!-- Mensagem surpresa -->
+        <button id="showMessageBtn">Mensagem Surpresa 💌</button>
+        <div id="surpriseMessage" class="hidden-message">
+            <p>Amor da minha vida, você é meu porto seguro, meu melhor amigo e o melhor presente que a vida me deu. Eu te amo com todo meu coração. Feliz Aniversário, meu Ian 💖</p>
+        </div>
+
+        <!-- Vídeo fofo -->
+        <button id="showVideoBtn">Clique para ver um vídeo fofo 💘</button>
+        <div id="videoContainer" class="hidden-video">
+            <video id="loveVideo" controls width="100%" poster="img/capa-video.jpg">
+                <source src="video/video-fofo.mp4" type="video/mp4">
+                Seu navegador não suporta vídeo.
             </video>
         </div>
-    </div>
+    </main>
 
-    <!-- Easter Egg Modal -->
-    <div class="modal" id="easterEggModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button class="close-modal" id="closeEasterEggModal">×</button>
-                <h2 class="modal-title">"Tem uma cobra na minha bota!"</h2>
-            </div>
-            <div class="modal-body">
-                <!-- Espaço para a foto de vocês juntos -->
-                <img src="/api/placeholder/400/320" alt="Foto nossa juntos" style="max-width: 100%; border-radius: 10px; margin: 20px 0;">
-            </div>
-        </div>
-    </div>
+    <!-- Gatinhas -->
+    <img src="img/nami.png" alt="Nami Gatinha" class="nami-cat" id="namiCat">
+    <img src="img/luna.png" alt="Luna Gatinha" class="luna-cat" id="lunaCat">
 
-    <!-- Arquivos de Áudio para referência futura -->
-    <audio id="backgroundMusic" loop>
-        <!-- Espaço para a música "You've Got a Friend in Me" -->
-        <source src="#" type="audio/mp3">
-    </audio>
+    <footer>
+        <p>&copy; 21 de Maio de 2025 - Todos os direitos reservados.</p>
+        <p>Desenvolvido, com amor, por Princesinha do Zeca Pagodinho &lt;3</p>
+    </footer>
 
-    <audio id="buttonSound">
-        <!-- Espaço para o som de botão -->
-        <source src="#" type="audio/mp3">
-    </audio>
+    <!-- Áudios -->
+    <audio id="namiAudio" src="audio/nami-woody.mp3"></audio>
+    <audio id="lunaAudio" src="audio/luna-buzz.mp3"></audio>
+    <audio id="modalAudio" src="audio/cobra-bota.mp3"></audio>
+    <audio id="messageAudio" src="audio/mensagem-fofa.mp3"></audio>
 
-    <audio id="surpriseSound">
-        <!-- Espaço para o som de surpresa -->
-        <source src="#" type="audio/mp3">
-    </audio>
-
-    <audio id="snakeInBootSound">
-        <!-- Espaço para o áudio "Tem uma cobra na minha bota" -->
-        <source src="#" type="audio/mp3">
-    </audio>
-
-    <script>
-        // Configurações iniciais
-        document.addEventListener('DOMContentLoaded', function() {
-            // Configurar o nome do namorado (substitua pelo nome real)
-            document.getElementById('boyfriendName').textContent = 'Nome do Seu Namorado';
-            
-            // Configurar botão de entrada
-            document.getElementById('enterButton').addEventListener('click', function() {
-                document.getElementById('welcomeScreen').style.display = 'none';
-                document.getElementById('mainContent').style.display = 'block';
-                
-                // Iniciar música de fundo
-                const backgroundMusic = document.getElementById('backgroundMusic');
-                backgroundMusic.volume = 0.4;
-                backgroundMusic.play();
-                
-                // Iniciar animação dos gatos
-                startCatAnimations();
-            });
-            
-            // Configurar botões de som
-            const buttons = document.querySelectorAll('[data-sound]');
-            buttons.forEach(button => {
-                button.addEventListener('click', function() {
-                    playSound(this.dataset.sound);
-                });
-            });
-            
-            // Configurar botão surpresa
-            document.getElementById('surpriseButton').addEventListener('click', function() {
-                // Aleatoriamente decide entre tocar a música ou mostrar o vídeo
-                if (Math.random() > 0.5) {
-                    // Tocar música tema do Toy Story
-                    const backgroundMusic = document.getElementById('backgroundMusic');
-                    backgroundMusic.currentTime = 0;
-                    backgroundMusic.play();
-                } else {
-                    // Mostrar vídeo
-                    const videoModal = document.getElementById('videoModal');
-                    videoModal.style.display = 'flex';
-                    const video = document.getElementById('surpriseVideo');
-                    video.play();
-                }
-            });
-            
-            // Configurar easter egg da bota
-            document.getElementById('bootEasterEgg').addEventListener('click', function() {
-                const snakeSound = document.getElementById('snakeInBootSound');
-                snakeSound.play();
-                
-                setTimeout(function() {
-                    document.getElementById('easterEggModal').style.display = 'flex';
-                }, 1000);
-            });
-            
-            // Configurar personagens gatos
-            const catCharacters = document.querySelectorAll('.cat-character');
-            catCharacters.forEach(cat => {
-                cat.addEventListener('click', function() {
-                    this.style.animation = 'float 1s ease-in-out';
-                    playSound('button-sound');
-                    
-                    // Exibir modal de mensagem ao clicar no gato
-                    document.getElementById('messageModal').style.display = 'flex';
-                    
-                    setTimeout(() => {
-                        this.style.animation = '';
-                    }, 1000);
-                });
-            });
-            
-            // Configurar fechamento dos modais
-            document.getElementById('closeMessageModal').addEventListener('click', function() {
-                document.getElementById('messageModal').style.display = 'none';
-            });
-            
-            document.getElementById('closeModalButton').addEventListener('click', function() {
-                document.getElementById('messageModal').style.display = 'none';
-            });
-            
-            document.getElementById('closeVideoModal').addEventListener('click', function() {
-                const videoModal = document.getElementById('videoModal');
-                videoModal.style.display = 'none';
-                const video = document.getElementById('surpriseVideo');
-                video.pause();
-            });
-            
-            document.getElementById('closeEasterEggModal').addEventListener('click', function() {
-                document.getElementById('easterEggModal').style.display = 'none';
-            });
-        });
-
-        // Função para tocar sons
-        function playSound(soundId) {
-            let sound;
-            
-            switch(soundId) {
-                case 'button-sound':
-                    sound = document.getElementById('buttonSound');
-                    break;
-                case 'surprise-sound':
-                    sound = document.getElementById('surpriseSound');
-                    break;
-                default:
-                    return;
-            }
-            
-            if (sound) {
-                sound.currentTime = 0;
-                sound.play();
-            }
-        }
-
-        // Função para animar os gatos
-        function startCatAnimations() {
-            const namiWoody = document.getElementById('namiWoody');
-            const lunaBuzz = document.getElementById('lunaBuzz');
-            
-            // Animação para Nami (Woody)
-            animateCat(namiWoody, {
-                minX: 50,
-                maxX: window.innerWidth - 200,
-                minY: 150,
-                maxY: window.innerHeight - 250,
-                speed: 20000
-            });
-            
-            // Animação para Luna (Buzz)
-            animateCat(lunaBuzz, {
-                minX: 50,
-                maxX: window.innerWidth - 200,
-                minY: 150,
-                maxY: window.innerHeight - 250,
-                speed: 25000
-            });
-        }
-
-        // Função para animar um gato
-        function animateCat(catElement, options) {
-            const moveToPosition = () => {
-                // Gerar nova posição aleatória
-                const newX = Math.floor(Math.random() * (options.maxX - options.minX + 1) + options.minX);
-                const newY = Math.floor(Math.random() * (options.maxY - options.minY + 1) + options.minY);
-                
-                // Animar para a nova posição
-                catElement.style.transition = `transform 0.5s, top ${options.speed/1000}s, left ${options.speed/1000}s`;
-                catElement.style.top = `${newY}px`;
-                catElement.style.left = `${newX}px`;
-                
-                // Adicionar efeito flutuante aleatoriamente
-                if (Math.random() > 0.7) {
-                    catElement.classList.add('floating');
-                    setTimeout(() => {
-                        catElement.classList.remove('floating');
-                    }, 6000);
-                }
-                
-                // Continuar animação após um tempo
-                setTimeout(moveToPosition, options.speed);
-            };
-            
-            // Iniciar animação
-            moveToPosition();
-        }
-
-        // Função para redimensionar elementos em telas diferentes
-        window.addEventListener('resize', function() {
-            // Atualizar limites para animações de gatos
-            startCatAnimations();
-        });
-    </script>
 </body>
 </html>
