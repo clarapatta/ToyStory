@@ -9,31 +9,50 @@
 
 body {
     font-family: 'Fredoka', sans-serif;
-    /* background: ('img/FundoAndy.jpg') repeat; */
-    background-size: cover;
-    color: #2C3E50;
-    line-height: 1.6;
-    padding: 20px;
-    text-align: center;
+    background-color: #83C5E8;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><circle cx="50" cy="50" r="30" fill="white" opacity="0.6"/><circle cx="150" cy="70" r="40" fill="white" opacity="0.6"/><circle cx="90" cy="140" r="35" fill="white" opacity="0.6"/></svg>');
+    background-repeat: repeat;
+    color: white;
+    overflow-x: hidden;
+    padding-bottom: 120px; /* espaço pro footer */
+}
+
+img, video {
+    max-width: 100%;
+    height: auto;
 }
 
 /* HEADER */
 .header {
-    background-color: #E74C3C;
+    background-color: #FFE8A3;
     border-radius: 15px;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(44, 62, 80, 0.2);
+    box-shadow: 0 4px 8px rgba(44, 62, 80, 0.15);
+    margin-bottom: 30px;
+    border: 3px dashed #F9D1D1;
+    text-align: center;
 }
 
 .header-title {
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: #8B4513;
+    text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.5);
+    margin-bottom: 10px;
+    animation: colorPulse 5s infinite;
 }
 
 .header-subtitle {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     margin-top: 10px;
-    color: #2C3E50;
+    color: #5D4037;
+    font-weight: 600;
+}
+
+.header p {
+    font-style: italic;
+    color: #D35400;
+    margin-top: 10px;
+    font-size: 1.1rem;
 }
 
 .logo img {
@@ -41,22 +60,77 @@ body {
     margin-bottom: 10px;
 }
 
+/* INSTRUÇÕES */
+main > p:first-child {
+    font-size: 1.2rem;
+    background-color: #FAF9F6;
+    padding: 10px;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 0 auto 20px;
+    border: 2px solid #D9C8F3;
+    font-weight: 600;
+    color: #9575CD;
+}
+
 /* BOTÕES */
 button {
-    background-color: #E74C3C;
-    color: #FFFFFF;
+    background-color: #F9D1D1;
+    color: #5D4037;
     border: none;
-    padding: 10px 20px;
-    margin: 15px auto;
-    font-size: 1rem;
+    padding: 12px 25px;
+    margin: 20px auto;
+    font-size: 1.1rem;
     border-radius: 10px;
     cursor: pointer;
     display: block;
-    transition: background 0.3s ease;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 0 #E8B4B4;
+    font-weight: 600;
+    min-width: 250px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
 }
 
 button:hover {
-    background-color: #9B59B6;
+    background-color: #D9C8F3;
+    transform: translateY(-3px);
+    box-shadow: 0 7px 0 #C5B4DF;
+    color: #4A148C;
+}
+
+button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #C5B4DF;
+}
+
+button:focus {
+    outline: 2px dashed #8B4513;
+    outline-offset: 4px;
+}
+
+#openModalBtn::after {
+    content: "🤠";
+    margin-left: 10px;
+    font-size: 1.2rem;
+}
+
+#showMessageBtn::after {
+    content: "💘";
+    margin-left: 10px;
+    font-size: 1.2rem;
+}
+
+#showVideoBtn::after {
+    content: "🎬";
+    margin-left: 10px;
+    font-size: 1.2rem;
+}
+
+button:hover::after {
+    display: inline-block;
+    animation: heartbeat 1s infinite;
 }
 
 /* MODAL */
@@ -70,177 +144,103 @@ button:hover {
     background: rgba(44, 62, 80, 0.8);
     justify-content: center;
     align-items: center;
+    overflow: auto;
+    padding: 20px;
 }
 
 .modal-content {
-    background: #FFFFFF;
-    padding: 20px;
+    background: #FAF9F6;
+    padding: 25px;
     border-radius: 15px;
     max-width: 90%;
+    width: 500px;
     position: relative;
-}
-
-.modal-photo-wrapper {
+    margin: 50px auto;
+    border: 5px solid #F9D1D1;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     text-align: center;
+    color: #5D4037;
 }
 
-.modal-photo {
-    width: 100%;
-    max-width: 300px;
-    border-radius: 15px;
-}
-
-.close-button {
-    position: absolute;
-    top: 10px; right: 15px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: #E74C3C;
-}
-
-/* MENSAGEM SURPRESA */
-.hidden-message,
-.hidden-video {
+/* MENSAGEM */
+.hidden-message {
     display: none;
-    margin-top: 20px;
-    background: #F1C40F;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: left;
+    margin-top: 30px;
+    background: #FFE8A3;
+    padding: 25px;
+    border-radius: 15px;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    color: #2C3E50;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    color: #5D4037;
+    border: 3px dashed #F9D1D1;
+    position: relative;
+}
+
+.hidden-message::before {
+    content: "💌";
+    font-size: 2rem;
+    position: absolute;
+    top: -15px;
+    left: 20px;
+    background: #FAF9F6;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #F9D1D1;
+}
+
+.hidden-message p {
+    margin-bottom: 15px;
+    line-height: 1.8;
+}
+
+/* VÍDEO */
+.hidden-video {
+    display: none;
+    margin-top: 30px;
+    background: #D9C8F3;
+    padding: 20px;
+    border-radius: 15px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border: 3px solid #C8F2DC;
 }
 
 /* GATINHAS */
 .nami-cat,
 .luna-cat {
-    width: 80px;
-    position: absolute;
-    bottom: 10px;
-    transition: transform 0.3s;
-}
-
-.nami-cat:hover,
-.luna-cat:hover {
-    transform: scale(1.2);
-}
-
-.nami-cat {
-    left: 10px;
-}
-
-.luna-cat {
-    right: 10px;
-}
-
-/* FOOTER */
-footer {
-    margin-top: 40px;
-    font-size: 0.9rem;
-    color: #2C3E50;
-}
-
-/* RESPONSIVIDADE */
-@media (max-width: 600px) {
-    .header-title {
-        font-size: 1.6rem;
-    }
-
-    .header-subtitle {
-        font-size: 1rem;
-    }
-
-    button {
-        font-size: 0.9rem;
-        padding: 8px 15px;
-    }
-
-    .modal-photo {
-        max-width: 90%;
-    }
-
-    .nami-cat,
-    .luna-cat {
-        width: 60px;
-    }
-}
-
-/* GATINHAS */
-.nami-cat,
-.luna-cat {
-    width: 80px;
-    position: absolute;
-    bottom: 10px;
-    transition: transform 0.3s;
-}
-
-.nami-cat:hover,
-.luna-cat:hover {
-    transform: scale(1.2);
-}
-
-.nami-cat {
-    left: 10px;
-}
-
-.luna-cat {
-    right: 10px;
-}
-
-/* FOOTER */
-footer {
-    margin-top: 40px;
-    font-size: 0.9rem;
-    color: #777;
-}
-
-/* RESPONSIVIDADE */
-@media (max-width: 600px) {
-    .header-title {
-        font-size: 1.6rem;
-    }
-
-    .header-subtitle {
-        font-size: 1rem;
-    }
-
-    button {
-        font-size: 0.9rem;
-        padding: 8px 15px;
-    }
-
-    .modal-photo {
-        max-width: 90%;
-    }
-
-    .nami-cat,
-    .luna-cat {
-        width: 60px;
-    }
-}
-
-/* Gatinhas */
-.nami-cat {
+    max-height: 120px;
+    width: auto;
+    z-index: 999;
+    cursor: pointer;
+    filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.3));
+    transition: transform 0.3s ease;
     position: fixed;
+}
+
+.nami-cat {
     bottom: 10px;
     left: -200px;
-    height: 120px;
-    z-index: 999;
-    animation: walkNami 8s linear infinite;
-    cursor: pointer;
+    animation: walkNami 15s linear infinite;
 }
 
 .luna-cat {
-    position: fixed;
     top: 20px;
     right: -200px;
-    height: 110px;
-    z-index: 998;
-    animation: walkLuna 10s linear infinite;
-    cursor: pointer;
+    animation: walkLuna 18s linear infinite;
+}
+
+.nami-cat:hover,
+.luna-cat:hover {
+    transform: scale(1.2) rotate(5deg);
+    filter: drop-shadow(5px 5px 8px rgba(0, 0, 0, 0.5));
 }
 
 @keyframes walkNami {
@@ -253,22 +253,76 @@ footer {
     100% { right: 100vw; }
 }
 
-/* Rodapé */
+/* FOOTER */
 footer {
-    background: #E74C3C;
-    padding: 20px;
-    font-size: 0.9rem;
+    background: #FFE8A3;
+    padding: 15px;
+    font-size: 1rem;
+    border-top: 3px dashed #F9D1D1;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: #5D4037;
 }
-footer p {
-    margin: 0;
+
+/* RESPONSIVO */
+@media (max-width: 600px) {
+    .header-title {
+        font-size: 1.8rem;
+    }
+
+    .header-subtitle {
+        font-size: 1.1rem;
+    }
+
+    button {
+        font-size: 1rem;
+        padding: 10px 20px;
+        min-width: 200px;
+    }
+
+    .modal-photo {
+        max-width: 100%;
+    }
+
+    .nami-cat,
+    .luna-cat {
+        height: 80px;
+    }
+
+    .hidden-message,
+    .hidden-video {
+        padding: 15px;
+    }
+
+    .modal-content {
+        width: 95%;
+        margin: 15% auto;
+    }
+
+    main > p:first-child {
+        font-size: 1rem;
+        padding: 8px;
+    }
+
+    footer {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
 }
-/* 
-musica de fundo - amigo estou aqui
 
-modal com capa da bota do woody e dentro dele uma foto nossa
+/* ANIMAÇÕES */
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
 
-imagem da nami passando pela tela - Falta a Imagem
-
-iamgem da luna passando pela tela - Falta a Imagem
-
-vídeo fofo */
+@keyframes colorPulse {
+    0% { color: #8B4513; }
+    50% { color: #F9D1D1; }
+    100% { color: #8B4513; }
+}

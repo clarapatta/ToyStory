@@ -16,6 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const videoContainer = document.getElementById('videoContainer');
     const loveVideo = document.getElementById('loveVideo');
 
+    const backgroundMusic = document.getElementById('backgroundMusic');
+    const playBtn = document.getElementById('playMusicBtn');
+    const pauseBtn = document.getElementById('pauseMusicBtn');
+
     // Abrir modal
     openBtn.addEventListener('click', () => {
         modal.style.display = 'block';
@@ -48,8 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mostrar mensagem
     showMessageBtn.addEventListener('click', () => {
         surpriseMessage.style.display = 'block';
-        messageAudio.currentTime = 0;
-        messageAudio.play();
     });
 
     // Mostrar vídeo
@@ -58,4 +60,14 @@ document.addEventListener('DOMContentLoaded', () => {
         loveVideo.currentTime = 0;
         loveVideo.play();
     });
-})
+
+    // Botões de música
+    playBtn.addEventListener('click', () => {
+        backgroundMusic.currentTime = 0;
+        backgroundMusic.play();
+    });
+
+    pauseBtn.addEventListener('click', () => {
+        backgroundMusic.pause();
+    });
+});
